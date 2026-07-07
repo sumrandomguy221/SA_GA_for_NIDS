@@ -27,15 +27,12 @@ Both algorithms converge near `θ ≈ 0.5` with nearly identical macro-F1 scores
 ```
 nids-threshold-optimization/
 ├── README.md
-├── requirements.txt
 ├── src/
-│   ├── main.py                 # Data loading, feature selection, optimizer orchestration
+│   ├── main.ipynb              # Jupyter workflow for analysis & visualization
 │   ├── utils.py                # Stratified CV fitness function & metrics
 │   ├── sa_optimizer.py         # Simulated Annealing implementation
 │   └── ga_optimizer.py         # Genetic Algorithm implementation
-├── notebooks/                  # Jupyter workflows for analysis & visualization
-├── data/                       # Raw/preprocessed traffic dataset (~4K records)
-└── results/                    # Plots, tables, and convergence logs
+└── data/                       # Raw/preprocessed traffic dataset (~4K records)
 ```
 
 ---
@@ -57,8 +54,8 @@ nids-threshold-optimization/
 ## 📊 Results Summary
 | Algorithm | Best Threshold (θ) | CV F1-Macro | Convergence Behavior |
 |-----------|-------------------|-------------|----------------------|
-| **SA** (`α=0.99`) | `~0.521` | `0.996` | High early variability → sharp drop ~iter 145–160 → stable plateau |
-| **GA** | `~0.546` | `0.996` | Smooth population-driven convergence; early stopping at gen ~112 |
+| **SA** (`α=0.99`) | `~0.521` | `0.996` | High early variability → converse around iteration 850 |
+| **GA** | `~0.546` | `0.996` | Smooth population-driven convergence |
 
 **Cooling-Rate Analysis (SA):**
 | α     | Converges At (~Iter) | Final θ | CV F1-Macro |
@@ -81,11 +78,10 @@ nids-threshold-optimization/
 ---
 
 ## 📚 References
-1. Kirkpatrick, S., Gelatt, C. D., & Vecchi, M. P. (1983). Optimization by simulated annealing. *Science*, 220(4598), 671–680.  
-2. Eiben, A. E., Hinterding, R., & Michalewicz, Z. (1999). Parameter control in evolutionary algorithms. *IEEE Transactions on Evolutionary Computation*, 3(2), 124–141.  
-3. Chiba, Z., et al. (2019). A hybrid framework based on GA and SA for network IDS optimization. In *Innovations in Smart Cities Applications*. Springer.  
-4. Russell, S., & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach* (4th ed.). Pearson Education.  
-5. UCI Machine Learning Repository. (1999). KDD Cup 99 dataset. https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html
+1. Artificial Intelligence: Foundations of Computational Agents, 3rd edition. David L. Poole and Alan K. Mackworth. Cambridge University Press. ISBN: 978-1009258197.2023
+2. Chawathe, S., Bishop, P., McHugh, J., & Wang, H. (1999). The KDD'99 intrusion detection evaluation dataset. University of California, Irvine Machine Learning Repository. https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html
+3. Chiba, Z., Abghour, N., Moussaid, K., El omri, A., Rida, M. (2019). A New Hybrid Framework Based on Improved Genetic Algorithm and Simulated Annealing Algorithm for Optimization of Network IDS Based on BP Neural Network. In: Ben Ahmed, M., Boudhir, A., Younes, A. (eds) Innovations in Smart Cities Applications Edition 2. SCA 2018. Lecture Notes in Intelligent Transportation and Infrastructure. Springer, Cham. https://doi.org/10.1007/978-3-030-11196-0_43  
+4. Russell, S., & Norvig, P. (2020). Artificial Intelligence: A Modern Approach (4th ed.). Pearson Education. 
 
 ---
 
